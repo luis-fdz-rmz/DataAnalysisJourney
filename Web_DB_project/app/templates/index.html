@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stats Dashboard</title>
+</head>
+<body>
+  <h1>Statistics</h1>
+  <ul id="stats"></ul>
+  <script src = "scripts/main.js">
+    fetch('/api/students')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('student_id');
+        data.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = `${item.label}: ${item.value}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
