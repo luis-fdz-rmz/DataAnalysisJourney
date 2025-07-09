@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styles/grade_addition.css" />
+  </head>
+  <body>
+    <header class="header">header</header>
+    <main>
+      <div class="grade-addition-portal" id="grade-addition-portal">
+        <div class="grade-addition-portal-section">
+          <div class="grade-portal-row"> 
+              Student Name
+          </div>
+          <input class="grade-addition-portal-section-input" >
+        </div>
+        <div class="grade-addition-portal-section">
+          <!-- Thinking of removing to automate selecting 
+           class and then adding grades -->
+          <div class="grade-portal-row"> 
+              Grade Subject
+          </div>
+          <select class="grade-addition-dropdown" >
+            <option value="" disabled selected></option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+
+          </select>
+        </div>
+        <div class="grade-addition-portal-section">
+          <div class="grade-portal-row"> 
+              Grade Task
+          </div>
+          <input class="grade-addition-portal-section-input" >
+        </div>
+        <div class="grade-addition-portal-section">
+          <div class="grade-portal-row"> 
+              Grade Type
+          </div>
+          <select class="grade-addition-dropdown" >
+            <option value="" disabled selected></option>
+            <option value="Assignment"> Assignment</option>
+            <option value="Quiz">       Quiz</option>
+            <option value="Exam">       Exam</option>
+            <option value="Project">    Project</option>
+            <option value="Attendance"> Attendance</option>
+
+          </select>
+        </div>
+        <div class="grade-addition-portal-section">
+          <div class="grade-portal-row"> 
+              Grade
+          </div>
+          <input class="grade-addition-portal-section-input" >
+        </div>
+        <div class="grade-addition-portal-section">
+          
+        </div>
+        <div class="grade-addition-portal-section">
+          
+        </div>
+        <div class="grade-addition-portal-section">
+        
+        </div>
+        <button class="submit-button", id="submit-button" onclick="submit();">
+          Submit
+        </button>
+      </div>
+      <script src="../static/scripts/grade_addition.js"></script>
+    </main>
+  </body>
+</html>

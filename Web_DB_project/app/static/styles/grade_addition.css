@@ -1,0 +1,76 @@
+.header {
+    background-color: red;
+    color:white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 10px 10px 10px;
+}
+
+body {
+    padding-top: 40px;
+    background-color: rgb(113, 113, 113);
+}
+
+.grade-addition-portal {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    color: white;
+    padding: 20px 20px 20px 20px;
+    max-width: 400px;
+    row-gap: 10px;
+    margin: auto;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.grade-addition-portal-section {
+    width: 350px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 20px 5px 20px;
+    border: solid;
+    border-color: black;
+    
+}
+
+.grade-addition-portal-section-input,
+.grade-addition-dropdown {
+    display: flex;
+    text-align: start;
+    background-color: yellowgreen;
+    border-radius: 5px;
+    min-width: 100px;
+    max-width: 200px;
+    margin-right: 1px;
+}
+
+.grade-portal-row {
+    font-size: 14px;
+    text-wrap: nowrap;
+    /* background-color: aquamarine; */
+    /* border: solid;
+    border-color: black;
+    border-width: 2px; */
+}
+
+.submit-button {
+    width: 100px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: chartreuse;
+    cursor: pointer;
+}
+
+.submitted-button {
+    background-color: violet;
+}
+
+.grade-addition-dropdown {
+    background-color: violet;
+    width: 100px;
+}

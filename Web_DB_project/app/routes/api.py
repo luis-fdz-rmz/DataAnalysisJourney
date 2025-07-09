@@ -1,6 +1,7 @@
 from flask import Blueprint, Flask, jsonify, request, current_app
 import psycopg
 from app.Handlers.Students import StudentHandler
+from app.Handlers.Grades import GradesHandler
 import os
 
 api = Blueprint('api',__name__)
@@ -17,5 +18,17 @@ def students():
     elif request.method == 'POST':
         json_data = request.get_json()
         return StudentHandler().AddStudent(conn,json_data)
+    else: 
+        return jsonify("ERROR")
+
+
+@api.route('/api/grades', methods=['GET', 'POST'])
+def grades():
+    conn = current_app.config['DB_CONN']
+    if request.method == 'GET':
+        return GradesHandler().getAllGrades(conn)
+    elif request.method == 'POST':
+        json_data = request.get_json()
+        return GradesHandler().AddGrade(conn,json_data)
     else: 
         return jsonify("ERROR")

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/styles/test_header.css">
+</head>
+<body>
+  <header class="header">
+    header
+  </header>
+  <main>
+    <div class="student-addition-portal" id = "student-addition-portal">
+      <div class="student-addition-portal-section">
+        <div class = "student-portal-row">
+          Student's Name
+        </div>
+        <input class="student-addition-portal-section-input js-student-form js-student-name" placeholder="Student's Name" id = student_name>
+
+      </div>
+      <div class="student-addition-portal-section">
+          <div class = "student-portal-row">
+            Student's Age
+          </div>
+          <input class="student-addition-portal-section-input js-student-form js-student-age" placeholder="Student's Age" id="student_age">
+      </div>
+      <div class="student-addition-portal-section">
+          <label class = "student-portal-row">
+            Student's Parent Education
+          </label>
+          <select class="student-addition-dropdown js-student-form js-student-gender" name="student-addition-gender", id="gender">
+            <option value="F">
+              Female
+            </option>
+            <option value="M">
+              Male
+            </option>
+            <option value="Other">
+              Other
+            </option>
+          </select>
+      </div>
+      <div class="student-addition-portal-section">
+          <div class = "student-portal-row">
+            Student's Grade Level
+          </div>
+          <input class="student-addition-portal-section-input js-student-form js-student-grade" placeholder="Student's Grade Level" id="grade_level">
+      </div>
+      <div class="student-addition-portal-section">
+          <label class = "student-portal-row">
+            Student's Parent Education
+          </label>
+          <select class="student-addition-dropdown js-student-form js-student-parent-education" name="student-addition-parent-education" id="parent_education">
+            <option value="High School">
+              High School
+            </option>
+            <option value="Bachelor's">
+              Bachelor's
+            </option>
+            <option value="Master's">
+              Master's
+            </option>
+            <option value="PhD">
+              PhD
+            </option>
+          </select>
+      </div>
+      <div class="student-addition-portal-section">
+          <label class = "student-portal-row">
+            Student's Lunch Type
+          </label>
+          <select class="student-addition-dropdown js-student-form js-student-lunch" name="student-addition-lunch-type", id="lunch_type">
+            <option value="Free or Reduced">
+              Free or Reduced
+            </option>
+            <option value="Standard">
+              Standard
+            </option>
+          </select>
+      </div>
+      <div class="student-addition-portal-section">
+          <label class = "student-portal-row">
+            Student's Internet Access
+          </label>
+          <select class="student-addition-dropdown js-student-form js-student-internet-access" name="student-addition-internet-access", id="internet_access">
+            <option value="True">
+              True
+            </option>
+            <option value="False">
+              False
+            </option>
+          </select>
+      </div>
+      <div class="student-addition-portal-section">
+          <label class = "student-portal-row">
+            Student's Extra Activities
+          </label>
+          <select class="student-addition-dropdown js-student-form js-student-extra-activities" name="student-addition-extra-activities", id="extra_activities">
+            <option value="True">
+              True
+            </option>
+            <option value="False">
+              False
+            </option>
+          </select>
+      </div>
+      <button class="submit-button", id="submit-button" onclick="
+      submit();">
+        Submit
+      </button>
+    </div>
+    <script src="../static/scripts/student_addition.js"></script>
+  </main>
+</body>
+
+</html>

@@ -27,16 +27,16 @@ class StudentDAO:
             try:
                 with self.conn.cursor(row_factory=dict_row) as cursor:
                     query = f"""
-                            INSERT INTO Student (student_name, gender, age, grade_level,
+                            INSERT INTO Students (student_name, gender, age, grade_level,
                             parent_education, lunch_type, internet_access,extra_activities)
 
                             VALUES (%s, %s, %s, %s,
                             %s, %s, %s,%s)
                             
-                            RETURNING student_id
+                            RETURNING student_id;
                             """
-                    values = (data.get('student_name'), data.get('gender'), data.get('age'), data.get('grade_level'),
-                            data.get('parent_education'), data.get('lunch_type'), data.get('internet_access'),data.get('extra_activities'))
+                    values = (data.get('student_name'), data.get('gender'), int(data.get('age')), int(data.get('grade_level')),
+                            data.get('parent_education'), data.get('lunch_type'), bool(data.get('internet_access')),bool(data.get('extra_activities')))
                     
                     cursor.execute(query, values)
                     result = cursor.fetchone()
@@ -44,6 +44,7 @@ class StudentDAO:
                         print("Failed to add student")
                         return {400: "Failed to add student"}
                     else:
+                        self.conn.commit()
                         return {200: result}
                     
             except psycopg.Error as e: 

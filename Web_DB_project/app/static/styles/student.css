@@ -1,0 +1,26 @@
+.js-student-grid {
+    background-color: burlywood;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    overflow-x: auto; 
+    overflow-y: hidden;
+
+    /* max-width: 100vw;         */
+    min-width: 1400px;
+    box-sizing: border-box;
+}
+
+.js-student-grid > * {
+  flex-shrink: 0;
+  min-width: 200px;
+}
+
+.js-student, .js-student-titles{
+    background-color: teal;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}

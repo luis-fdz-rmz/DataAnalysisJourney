@@ -2,4 +2,5 @@ Flask
 psycopg
 flask-cors
 python-dotenv
+Flask-SQLAlchemy
 

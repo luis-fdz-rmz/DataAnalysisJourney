@@ -1,22 +1,21 @@
 from flask import jsonify
-from app.DAO.Students import StudentDAO
+from app.DAO.Grades import GradesDAO
 
 
-class StudentHandler:
-    
-    def getAllStudents(self, conn):
-        dao = StudentDAO(conn)
-        dbtuples = dao.getAllStudents()
+class GradesHandler:
+    def getAllGrades(self, conn):
+        dao = GradesDAO(conn)
+        dbtuples = dao.getAllGrades()
         if 200 in dbtuples:
             return jsonify({'message' : dbtuples[200]})
         else:
             return jsonify({'message':dbtuples.values()})
         
-    def AddStudent(self, conn, data):
+    def AddGrade(self, conn, data):
         if len(tuple(data)) != 8:
             return jsonify("information not match database requirements")
-        dao = StudentDAO(conn)
-        dbtuples = dao.addStudent(data)
+        dao = GradesDAO(conn)
+        dbtuples = dao.addGrade(data)
         if 200 in dbtuples:
             return jsonify({'message' : dbtuples[200]})
         else:
