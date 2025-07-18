@@ -16,21 +16,6 @@ def login_required(f):
 
 @pages.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        # Get the user from the database using a function from models.py
-        user = get_user_by_username(username)
-
-        if user and check_password_hash(user[2], password):  # user[2] is password_hash
-            session['user_id'] = user[0]  # Store user ID in session
-            flash('Login successful!', 'success')
-            return redirect(url_for('pages.students'))  # Redirect to dashboard
-        else:
-            flash('Invalid credentials, please try again.', 'error')
-            return redirect(url_for('pages.login'))  # Stay on login page
-
     return render_template('login.html')
 
 @pages.route('/')
@@ -43,10 +28,12 @@ def home():
 def students():
     return render_template('students.html')
 
-@pages.route('/addstudents')
+
+
+@pages.route('/approveuser')
 @login_required
 def add_students():
-    return render_template('add_student.html')
+    return render_template('approve_user.html')
 
 @pages.route('/grades')
 @login_required
@@ -57,3 +44,13 @@ def grade_students():
 @login_required
 def add_grades():
     return render_template('add_grades.html')
+
+
+# TODO:
+# * class route 
+# * /class/id 
+
+@pages.route('/')
+@login_required
+def home_page():
+    return render_template('home.html')

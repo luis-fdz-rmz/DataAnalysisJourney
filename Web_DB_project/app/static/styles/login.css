@@ -1,0 +1,17 @@
+.js-user-login-signup-form {
+    background-color: wheat;
+    margin: auto;
+    max-width: 600px;
+}
+
+.js-radio-buttons,
+.js-signup-common-fields,
+.js-signup-specific,
+.login-signup-buttons {
+    background-color: blanchedalmond;
+}
+
+.js-radio-buttons{
+    display: flex;
+    justify-content: space-between 1fr 1fr;
+}

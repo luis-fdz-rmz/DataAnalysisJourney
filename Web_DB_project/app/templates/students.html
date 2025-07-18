@@ -5,7 +5,10 @@
     <link rel="stylesheet" href="../static/styles/student.css">
 </head>
 <body>
-  <h1>Students</h1>
+  <header class="header">
+    header <button class = 'logout' onclick="logout_button();">logout</button>
+  </header>
+  <h1 class="header-title">Students</h1>
   <div class="js-student-grid">
     <div class="js-student-titles">
       <div class="js-student-id" > id</div>
@@ -31,6 +34,6 @@
     </div>
     <div class="js-student">2</div>
   </div>
-  <script src="../static/scripts/student.js"></script>
+  <script type="module" src="../static/scripts/student.js"></script>
 </body>
 </html>

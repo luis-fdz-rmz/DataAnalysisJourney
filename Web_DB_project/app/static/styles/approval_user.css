@@ -1,3 +1,7 @@
+.body {
+    font-size: xx-small;
+}
+
 .header {
     background-color: red;
     color:white;
@@ -12,7 +16,7 @@
   padding: 20px 0px 0px 0px;
 }
 
-.js-student-grid {
+.js-approval-user-grid {
     background-color: burlywood;
 
     display: flex;
@@ -23,18 +27,18 @@
     overflow-y: hidden;
 
     /* max-width: 100vw;         */
-    min-width: 1400px;
+    min-width: 2400px;
     box-sizing: border-box;
 }
 
-.js-student-grid > * {
+.js-approval-user-grid > * {
   flex-shrink: 0;
-  min-width: 200px;
+  min-width: 400px;
 }
 
-.js-student, .js-student-titles{
+.js-approval-user, .js-approval-user-titles{
     background-color: teal;
     margin-bottom: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }

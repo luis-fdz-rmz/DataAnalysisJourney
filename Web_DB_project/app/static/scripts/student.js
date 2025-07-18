@@ -1,3 +1,5 @@
+import { logout } from './logout.js';
+
 async function getAllStudents(){
     try {
         const response = await fetch('/api/students', {
@@ -27,8 +29,8 @@ async function getAllStudents(){
         ` 
         result.message.forEach(element => {
             studentTableHTML += `
-                <div class="js-student-titles">
-                <div class="js-student-id" > ${element.grade_id}</div>
+            <div class="js-student-titles">
+                <div class="js-student-id" > ${element.student_id}</div>
                 <div class="js-student-name" > ${element.student_name}</div>
                 <div class="js-student-age" > ${element.age}</div>
                 <div class="js-student-gender" > ${element.gender}</div>
@@ -40,12 +42,19 @@ async function getAllStudents(){
             </div>`
         });
 
-        document.querySelector('.js-student-grid').innerHTML = studentTableHTML 
+        document.querySelector('.js-student-grid').innerHTML = studentTableHTML;
     } catch (err) {
         console.error(err);
         alert('fetch failed.');
     }
 
+    let form = document.querySelector('.header')
+    form.innerHTML = `header <button class = 'logout'> logout </button>`
+    document.querySelector('.logout').addEventListener('click', ()=>{
+        logout();
+        console.log('logged out');
+    })
 }
+
 
 getAllStudents();

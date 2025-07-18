@@ -11,9 +11,9 @@ class StudentDAO:
             try:
                 with self.conn.cursor(row_factory=dict_row) as cursor:
                     query = """
-                            SELECT student_id,student_name, gender, age, grade_level, parent_education, lunch_type, internet_access, extra_activities
-                            FROM Students
-                            ORDER BY student_id
+                            SELECT user_id,username,user_name, gender, age, grade_level, parent_education, lunch_type, internet_access, extra_activities
+                            FROM Students NATURAL INNER JOIN Users
+                            ORDER BY user_id
                             """
                     cursor.execute(query)
                     result = cursor.fetchall()
@@ -33,7 +33,7 @@ class StudentDAO:
                             VALUES (%s, %s, %s, %s,
                             %s, %s, %s,%s)
                             
-                            RETURNING student_id;
+                            RETURNING user_id;
                             """
                     values = (data.get('student_name'), data.get('gender'), int(data.get('age')), int(data.get('grade_level')),
                             data.get('parent_education'), data.get('lunch_type'), bool(data.get('internet_access')),bool(data.get('extra_activities')))
