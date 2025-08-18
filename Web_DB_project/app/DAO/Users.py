@@ -7,12 +7,12 @@ class UsersDAO:
     def __init__(self, conn) -> None:
         self.conn = conn
         
-    def checkUser(self,data) -> (dict[int, list] | dict[int, str]):
+    def checkUser(self,data) -> (dict[int | str, list] | dict[int | str, str]):
         if self.conn is not None:
             try:
                 with self.conn.cursor(row_factory=dict_row) as cursor:
                     query = f"""
-                            SELECT password_hash
+                            SELECT password_hash, user_name, profile_picture, email
                             FROM Users 
                             WHERE (username = %s
                             OR email = %s);
@@ -21,7 +21,10 @@ class UsersDAO:
                     cursor.execute(query, values)
                     result = cursor.fetchone()
                     if result and cph(result.get('password_hash'), data.get('password')):
-                        return {200: 'success'}
+                        return {200:'sucess',
+                            'user_name':result.get('user_name'), 
+                            'profile_picture':result.get('profile_picture'), 
+                            'email':result.get('email')}
                     else:
                         return {400: "Incorrect password, username or email"}
             except psycopg.Error as e: 

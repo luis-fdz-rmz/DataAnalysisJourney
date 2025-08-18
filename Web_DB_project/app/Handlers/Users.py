@@ -6,8 +6,11 @@ class UsersHandler:
     def CheckUser(self,conn,data):
         dao = UsersDAO(conn)
         dbtuples = dao.checkUser(data)
-        if 200 in dbtuples:
-            return jsonify({'status' : 'success'}), 200
+        if 200 in dbtuples.keys():
+            return {'status' : 'success',
+                            'user_name' : dbtuples.get('user_name'), 
+                            'profile_picture' : dbtuples.get('profile_picture'), 
+                            'email' : dbtuples.get('email')}
         else:
             return
 
@@ -36,4 +39,4 @@ class UsersHandler:
         dao = UsersDAO(conn)
         dbtuples = dao.removeUser(data)
         return jsonify(dbtuples)
-        
+    

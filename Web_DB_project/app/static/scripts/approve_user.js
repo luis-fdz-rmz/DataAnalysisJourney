@@ -79,8 +79,28 @@ async function getAllApprovalUsers(){
     let form = document.querySelector('.header')
     form.innerHTML = `
     <button class = 'logout'> logout </button>
-    <div class="js-user-profile"></div>
+    <div class="js-user-profile"> </div>
     `
+    try{
+        const response = await fetch('/api/user_header', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const result = await response.json();
+
+        console.log(result);
+        document.querySelector('.js-user-profile').innerHTML =
+        `<div class=js-user-profile-picture>${result.profile_picture}</div> ${result.user_name}` ;
+    }catch (err) {
+        console.error(err);
+        alert('user header fetch failed.');
+    };
+
     document.querySelector('.logout').addEventListener('click', ()=>{
         logout();
         console.log('logged out');

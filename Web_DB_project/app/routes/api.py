@@ -1,5 +1,6 @@
 from flask import Blueprint, Flask, jsonify, request, current_app, session, redirect, url_for
 import psycopg
+from functools import wraps
 from app.Handlers.Students import StudentHandler
 from app.Handlers.Grades import GradesHandler
 from app.Handlers.Users import UsersHandler
@@ -8,6 +9,15 @@ import os
 api = Blueprint('api',__name__)
 
 
+
+def login_required(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            # If the user is not logged in, redirect to login page
+            return redirect(url_for('pages.login'))
+        return f(*args, **kwargs)
+    return wrapper
 
 # <int:id> for id 
 
@@ -43,7 +53,14 @@ def api_login():
         response = UsersHandler().CheckUser(conn,json_data)
         session['user_id'] = json_data.get('username')
         if response:
-            return jsonify({'status': 'success', 'redirect': url_for('pages.students')}), 200
+            session['user_name'] = response.get('user_name')
+            session['profile_picture'] = response.get('profile_picture')
+            session['email'] = response.get('email')
+            return jsonify({'status': 'success', 
+                            'redirect': url_for('pages.signuprequests'),
+                            'user_name' : response.get('user_name'), 
+                            'profile_picture' : response.get('profile_picture'), 
+                            'email' : response.get('email')}), 200
         else:
             return jsonify([{'error':400}]),400
 
@@ -100,5 +117,13 @@ def api_removeUser():
 
 @api.route('/api/logout', methods=['GET'])
 def api_logout():
-    session.pop('user_id', None)
+    session.pop('user_id')
     return jsonify({'status':'success', 'redirect':url_for('pages.login')})
+
+@api.route('/api/user_header')
+@login_required
+def api_user_header():
+    return jsonify({
+                    'user_name' : session.get('user_name'), 
+                    'profile_picture' : session.get('profile_picture'), 
+                    'email' : session.get('email')}), 200

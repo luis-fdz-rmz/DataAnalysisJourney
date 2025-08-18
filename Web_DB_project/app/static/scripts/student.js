@@ -18,7 +18,7 @@ async function getAllStudents(){
         <div class="js-student-titles">
             <div class="js-student-id" > ID </div>
             <div class="js-student-name" > Full Name</div>
-            <div class="js-student-age" > Age </div>
+            <div class="js-student-age" > Birthday </div>
             <div class="js-student-gender" > Gender</div>
             <div class="js-student-grade-level" > Grade Level</div>
             <div class="js-student-parent-education" > Parent Education</div>
@@ -30,9 +30,9 @@ async function getAllStudents(){
         result.message.forEach(element => {
             studentTableHTML += `
             <div class="js-student-titles">
-                <div class="js-student-id" > ${element.student_id}</div>
-                <div class="js-student-name" > ${element.student_name}</div>
-                <div class="js-student-age" > ${element.age}</div>
+                <div class="js-student-id" > ${element.user_id}</div>
+                <div class="js-student-name" > ${element.user_name}</div>
+                <div class="js-student-age" > ${element.birthday}</div>
                 <div class="js-student-gender" > ${element.gender}</div>
                 <div class="js-student-grade-level" > ${element.grade_level}</div>
                 <div class="js-student-parent-education" > ${element.parent_education}</div>

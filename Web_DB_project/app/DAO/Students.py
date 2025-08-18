@@ -11,7 +11,7 @@ class StudentDAO:
             try:
                 with self.conn.cursor(row_factory=dict_row) as cursor:
                     query = """
-                            SELECT user_id,username,user_name, gender, age, grade_level, parent_education, lunch_type, internet_access, extra_activities
+                            SELECT user_id,username,user_name, gender, birthday, grade_level, parent_education, lunch_type, internet_access, extra_activities
                             FROM Students NATURAL INNER JOIN Users
                             ORDER BY user_id
                             """
@@ -27,7 +27,7 @@ class StudentDAO:
             try:
                 with self.conn.cursor(row_factory=dict_row) as cursor:
                     query = f"""
-                            INSERT INTO Students (student_name, gender, age, grade_level,
+                            INSERT INTO Students (student_name, gender, birthday, grade_level,
                             parent_education, lunch_type, internet_access,extra_activities)
 
                             VALUES (%s, %s, %s, %s,

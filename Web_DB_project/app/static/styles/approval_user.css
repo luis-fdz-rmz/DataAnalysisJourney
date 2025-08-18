@@ -42,3 +42,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+
+.js-user-profile-picture{
+  width: 28px;
+  height: 28px;
+}

@@ -30,9 +30,9 @@ def students():
 
 
 
-@pages.route('/approveuser')
+@pages.route('/signuprequests')
 @login_required
-def add_students():
+def signuprequests():
     return render_template('approve_user.html')
 
 @pages.route('/grades')
